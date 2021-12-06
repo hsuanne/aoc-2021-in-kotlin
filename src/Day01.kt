@@ -6,6 +6,7 @@ fun main() {
     
     println(part1(input))
 
+    println(part2(input))
 }
 
 private fun part1(input: List<Int>): Int {
@@ -16,6 +17,13 @@ private fun part1(input: List<Int>): Int {
     return count
 }
 
-private fun part2(input: List<String>): Int {
-    return input.size
+private fun part2(input: List<Int>): Int {
+    var count = 0
+    for (i in 0 until input.size-3){
+        val sumPrev = input[i] + input [i+1] + input[i+2]
+        val sumNext = input[i+1] + input[i+2] + input[i+3]
+
+        if (sumPrev < sumNext) count += 1
+    }
+    return count
 }
